@@ -1,96 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
+/* Feng Shui Design System
+   Colors inspired by: Sage Green, Earth Tones, Gold Accents, Zen White
+   Chi Flow: Smooth, organic, harmonious
 */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Feng Shui Spiritual Palette */
+    --background: 40 33% 97%; /* Zen white/cream */
+    --foreground: 150 18% 20%; /* Deep forest */
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 40 30% 95%;
+    --card-foreground: 150 18% 20%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 40 33% 97%;
+    --popover-foreground: 150 18% 20%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Sage Green - Primary */
+    --primary: 90 15% 55%;
+    --primary-foreground: 40 33% 97%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Warm Earth - Secondary */
+    --secondary: 35 30% 75%;
+    --secondary-foreground: 150 18% 20%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Soft Sage - Muted */
+    --muted: 90 10% 90%;
+    --muted-foreground: 150 10% 45%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Gold Accent */
+    --accent: 43 65% 52%;
+    --accent-foreground: 150 18% 15%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    /* Terracotta */
+    --destructive: 15 50% 55%;
+    --destructive-foreground: 40 33% 97%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 90 10% 85%;
+    --input: 90 10% 88%;
+    --ring: 90 15% 55%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
 
-    --sidebar-background: 0 0% 98%;
+    /* Custom Feng Shui Variables */
+    --sage: 90 15% 55%;
+    --sage-light: 90 15% 75%;
+    --sage-dark: 90 20% 35%;
+    --earth: 35 30% 55%;
+    --earth-light: 35 30% 75%;
+    --gold: 43 65% 52%;
+    --gold-light: 43 55% 70%;
+    --terracotta: 15 45% 50%;
+    --zen-white: 40 33% 97%;
+    --forest: 150 18% 20%;
 
-    --sidebar-foreground: 240 5.3% 26.1%;
+    /* Gradients */
+    --gradient-zen: linear-gradient(135deg, hsl(var(--zen-white)) 0%, hsl(var(--sage-light)) 100%);
+    --gradient-earth: linear-gradient(180deg, hsl(var(--earth-light)) 0%, hsl(var(--sage-light)) 100%);
+    --gradient-gold: linear-gradient(135deg, hsl(var(--gold)) 0%, hsl(var(--gold-light)) 100%);
 
-    --sidebar-primary: 240 5.9% 10%;
+    /* Shadows */
+    --shadow-zen: 0 4px 20px -4px hsl(var(--sage) / 0.15);
+    --shadow-float: 0 10px 40px -10px hsl(var(--forest) / 0.1);
+    --shadow-gold: 0 4px 20px -4px hsl(var(--gold) / 0.3);
 
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
-
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    /* Sidebar - keeping for compatibility */
+    --sidebar-background: 40 33% 97%;
+    --sidebar-foreground: 150 18% 20%;
+    --sidebar-primary: 90 15% 55%;
+    --sidebar-primary-foreground: 40 33% 97%;
+    --sidebar-accent: 43 65% 52%;
+    --sidebar-accent-foreground: 150 18% 15%;
+    --sidebar-border: 90 10% 85%;
+    --sidebar-ring: 90 15% 55%;
   }
 }
 
@@ -99,7 +86,128 @@ All colors MUST be HSL.
     @apply border-border;
   }
 
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif;
+  }
+}
+
+@layer components {
+  /* Chi Flow Animations */
+  .chi-float {
+    animation: chiFloat 6s ease-in-out infinite;
+  }
+
+  .chi-fade-in {
+    animation: chiFadeIn 0.8s ease-out forwards;
+  }
+
+  .chi-slide-up {
+    animation: chiSlideUp 0.6s ease-out forwards;
+  }
+
+  /* Zen Hover Effects */
+  .zen-hover {
+    @apply transition-all duration-500 ease-out;
+  }
+
+  .zen-hover:hover {
+    @apply shadow-float transform -translate-y-1;
+  }
+
+  /* Gold Accent Underline */
+  .gold-underline {
+    @apply relative;
+  }
+
+  .gold-underline::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-0 h-0.5 bg-accent transition-all duration-500;
+  }
+
+  .gold-underline:hover::after {
+    @apply w-full;
+  }
+
+  /* Organic Shape */
+  .organic-shape {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  }
+
+  /* Section Spacing */
+  .section-padding {
+    @apply py-20 md:py-28 lg:py-32;
+  }
+
+  /* Container */
+  .feng-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+}
+
+@layer utilities {
+  /* Custom shadows */
+  .shadow-zen {
+    box-shadow: var(--shadow-zen);
+  }
+
+  .shadow-float {
+    box-shadow: var(--shadow-float);
+  }
+
+  .shadow-gold {
+    box-shadow: var(--shadow-gold);
+  }
+
+  /* Gradient backgrounds */
+  .bg-gradient-zen {
+    background: var(--gradient-zen);
+  }
+
+  .bg-gradient-earth {
+    background: var(--gradient-earth);
+  }
+
+  .bg-gradient-gold {
+    background: var(--gradient-gold);
+  }
+}
+
+/* Keyframes */
+@keyframes chiFloat {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(1deg);
+  }
+}
+
+@keyframes chiFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes chiSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
