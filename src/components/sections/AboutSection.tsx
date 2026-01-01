@@ -1,14 +1,15 @@
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Award, Users, CheckCircle, Globe } from 'lucide-react';
+import portraitImage from '@/assets/aysenur-portrait.jpeg';
 
 const AboutSection = () => {
   const { lang } = useLanguage();
 
   const stats = [
-    { icon: Award, value: '20+', label: lang.about.experience },
-    { icon: Users, value: '500+', label: lang.about.clients },
-    { icon: CheckCircle, value: '1000+', label: lang.about.projects },
-    { icon: Globe, value: '15+', label: lang.about.certification },
+    { icon: Award, value: '5+', label: lang.about.experience },
+    { icon: Users, value: '100+', label: lang.about.clients },
+    { icon: CheckCircle, value: '200+', label: lang.about.projects },
+    { icon: Globe, value: '1', label: lang.about.certification },
   ];
 
   return (
@@ -22,8 +23,8 @@ const AboutSection = () => {
           <div className="relative">
             <div className="relative aspect-[4/5] rounded-3xl overflow-hidden shadow-float">
               <img
-                src="https://images.unsplash.com/photo-1545205597-3d9d02c29597?w=800&auto=format&fit=crop&q=80"
-                alt="Feng Shui Danışmanı"
+                src={portraitImage}
+                alt="Ayşenur Gündoğdu - İç Mimar & Feng Shui Uzmanı"
                 className="w-full h-full object-cover"
               />
               {/* Overlay gradient */}
@@ -55,8 +56,11 @@ const AboutSection = () => {
             <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-foreground mb-6 leading-tight">
               {lang.about.title}
             </h2>
-            <p className="text-muted-foreground text-lg leading-relaxed mb-10">
+            <p className="text-muted-foreground text-lg leading-relaxed mb-6">
               {lang.about.description}
+            </p>
+            <p className="text-muted-foreground leading-relaxed mb-10">
+              Aslında feng shui'yi girdiğimiz yaşam alanlarında hepimiz farkediyoruz, bir mekana girdiğimizde bazen çok huzur buluyoruz dinlenmiş hissediyoruz bazen de herşey ne kadar iyi görünürse görünsün orada durmak dahi istemiyoruz. Mekanların etkisi hayatımızda bu kadar önemliyken bize verilen bu şansı değerlendirmek aslında bizlerin elinde.
             </p>
 
             {/* Stats Grid */}
