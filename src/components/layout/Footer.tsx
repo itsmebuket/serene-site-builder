@@ -1,13 +1,11 @@
 import { useLanguage } from '@/contexts/LanguageContext';
-import { Instagram, Facebook, Youtube, Mail, Phone, MapPin } from 'lucide-react';
+import { Instagram, Mail, Phone, MapPin, FileText } from 'lucide-react';
 
 const Footer = () => {
   const { lang } = useLanguage();
 
   const socialLinks = [
-    { icon: Instagram, href: '#', label: 'Instagram' },
-    { icon: Facebook, href: '#', label: 'Facebook' },
-    { icon: Youtube, href: '#', label: 'Youtube' },
+    { icon: Instagram, href: 'https://instagram.com/aysenurnasgundogdu', label: 'Instagram' },
   ];
 
   return (
@@ -21,10 +19,13 @@ const Footer = () => {
               <div className="w-12 h-12 rounded-full bg-sage/20 flex items-center justify-center">
                 <span className="text-sage-light font-serif text-2xl">氣</span>
               </div>
-              <span className="font-serif text-2xl">Feng Shui</span>
+              <div>
+                <span className="font-serif text-xl block">Ayşenur Gündoğdu</span>
+                <span className="text-sm text-zen-white/70">Feng Shui Uzmanı</span>
+              </div>
             </div>
             <p className="text-zen-white/70 leading-relaxed mb-6">
-              {lang.about.description.substring(0, 120)}...
+              Huzurlu, dengeli ve enerjisi yüksek yaşam alanları yaratmak için Feng Shui'yi keşfedin!
             </p>
             {/* Social Links */}
             <div className="flex gap-4">
@@ -32,6 +33,8 @@ const Footer = () => {
                 <a
                   key={social.label}
                   href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-10 h-10 rounded-full bg-sage/10 flex items-center justify-center hover:bg-sage/30 transition-colors duration-300"
                   aria-label={social.label}
                 >
@@ -78,6 +81,18 @@ const Footer = () => {
                   </a>
                 </li>
               ))}
+              {/* Certificate Link */}
+              <li>
+                <a
+                  href="/documents/feng-shui-sertifika.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-zen-white/70 hover:text-zen-white transition-colors duration-300 flex items-center gap-2"
+                >
+                  <FileText size={14} />
+                  {lang.footer.certificate}
+                </a>
+              </li>
             </ul>
           </div>
 
@@ -88,20 +103,30 @@ const Footer = () => {
               <li className="flex items-start gap-3">
                 <MapPin size={18} className="text-sage-light mt-1 shrink-0" />
                 <span className="text-zen-white/70">
-                  Bağdat Caddesi No: 123<br />
-                  Kadıköy, İstanbul
+                  İstanbul, Türkiye
                 </span>
               </li>
               <li className="flex items-center gap-3">
                 <Phone size={18} className="text-sage-light shrink-0" />
-                <a href="tel:+902161234567" className="text-zen-white/70 hover:text-zen-white transition-colors">
-                  +90 216 123 45 67
+                <a href="tel:+905457730951" className="text-zen-white/70 hover:text-zen-white transition-colors">
+                  0545 773 09 51
                 </a>
               </li>
               <li className="flex items-center gap-3">
                 <Mail size={18} className="text-sage-light shrink-0" />
-                <a href="mailto:info@fengshui.com" className="text-zen-white/70 hover:text-zen-white transition-colors">
-                  info@fengshui.com
+                <a href="mailto:nasaysenur@gmail.com" className="text-zen-white/70 hover:text-zen-white transition-colors">
+                  nasaysenur@gmail.com
+                </a>
+              </li>
+              <li className="flex items-center gap-3">
+                <Instagram size={18} className="text-sage-light shrink-0" />
+                <a 
+                  href="https://instagram.com/aysenurnasgundogdu" 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-zen-white/70 hover:text-zen-white transition-colors"
+                >
+                  @aysenurnasgundogdu
                 </a>
               </li>
             </ul>
